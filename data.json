@@ -1,25 +1,3 @@
 {
-	"notes": [
-		{
-			"id": 1
-		},
-		{
-			"id": 2
-		},
-		{
-			"id": 3,
-			"title": "asfa",
-			"description": "afasa"
-		},
-		{
-			"id": 4,
-			"title": "asfa",
-			"description": "afasa"
-		},
-		{
-			"id": 5,
-			"title": "h",
-			"description": "h"
-		}
-	]
+	"notes": []
 }

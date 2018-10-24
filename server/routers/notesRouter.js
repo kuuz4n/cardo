@@ -54,10 +54,10 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
   const notes = store.get('notes');
-  const newNote = notes.filter(note => note.id !== id);
+  const newNotes = notes.filter(note => Number(note.id) !== Number(id));
 
-  store.set('notes', newNote);
-  res.json(store.get('notes'));
+  store.set('notes', newNotes);
+  res.json(newNotes);
 });
 
 module.exports = router;

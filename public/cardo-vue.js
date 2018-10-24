@@ -39,6 +39,23 @@
       clear: function() {
         this.title = null;
         this.description = null;
+      },
+      deleteNote: function(note) {
+        var self = this;
+        axios.delete('/api/notes/' + note.id)
+          .then(function(res) {
+            // self.notes = res.data;
+            var index = -1;
+            for(var i = 0; i < self.notes.length; ++i) {
+              if(Number(self.notes[i].id) === Number(note.id)) {
+                index = i;
+                break;
+              }
+            }
+            self.notes.splice(index, 1);
+          })
+          .catch(function(err) {
+          });
       }
     }
   });

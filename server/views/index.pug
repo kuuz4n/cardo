@@ -31,10 +31,13 @@ html(lang="en")
             th ID
             th Title
             th Description
+            th Actions
           tr(v-for="note in notes")
             td {{ note.id }}
             td {{ note.title }}
             td {{ note.description }}
+            td
+              button(v-on:click="deleteNote(note)") Delete
           
     script(src="/axios.min.js")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
