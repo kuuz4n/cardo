@@ -14,13 +14,17 @@ html(lang="en")
       form#addNoteForm(action="/" method="POST")
         .form-group
           label Title
-          input.form-control#title(type="text" name="title")
+          input.form-control#title(type="text"
+            name="title" v-model="title")
         .form-group
           label Content
-          textarea.form-control#description(rows="3" name="description")
+          textarea.form-control#description(rows="3"
+            name="description" v-model="description")
         .form-group
-          button.btn.btn-primary(type="submit") Add Note
-          button.btn#clearBtn(type="button") Clear
+          button.btn.btn-primary(type="button"
+            v-on:click="addNote") Add Note
+          button.btn#clearBtn(type="button"
+            v-on:click="clear") Clear
       section
         table.table#notesTable
           tr
