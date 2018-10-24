@@ -10,8 +10,7 @@ const store = new SimpleJsonStore('./data-2.json',
 
 router.get('/', (req, res) => {
   let viewModel = req.viewModel;
-  const notes = store.get('notes');
-  console.log(notes);
+  viewModel.notes = store.get('notes');
   res.render('index.pug', viewModel);
 });
 
@@ -19,7 +18,8 @@ router.post('/', (req, res) => {
   let notes = store.get('notes');
   notes.push({
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    author: req.body.author
   });
   store.set('notes', notes);
   res.redirect('/');

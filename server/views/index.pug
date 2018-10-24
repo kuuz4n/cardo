@@ -19,7 +19,22 @@ html(lang="en")
           label Content
           textarea.form-control(rows="3" name="content")
         .form-group
+          label Author
+          input.form-control(type="text" name="author")
+        .form-group
           button.btn.btn-primary(type="submit") Add Note
           button.btn#clearBtn(type="button") Clear
+      section
+        table.table
+          tr
+            th Title
+            th Content
+            th Author
+          each note in notes
+            tr
+              td= note.title
+              td= note.content
+              td= note.author
+          
       
     script(src="/cardo.js")
