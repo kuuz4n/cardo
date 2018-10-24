@@ -4,12 +4,20 @@
  */
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const notesRouter = require('./server/routers/notesRouter');
+const aboutRouter = require('./server/routers/aboutRouter');
+const indexRouter = require('./server/routers/indexRouter');
 const port = 3300;
 
 app.use(morgan('dev'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   req.viewModel = {
@@ -24,15 +32,8 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'pug');
 
-app.get('/', (req, res) => {
-  let viewModel = req.viewModel;
-  res.render('index.pug', viewModel);
-});
-
-app.get('/about', (req, res) => {
-  res.send('What about us?');
-});
-
+app.use('/', indexRouter);
+app.use('/about', aboutRouter);
 app.use('/api/notes', notesRouter);
 
 app.listen(port, (err) => {

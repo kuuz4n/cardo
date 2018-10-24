@@ -11,5 +11,15 @@ html(lang="en")
   body
     main(role="main" class="container")
       h1#pageTitle Welcome to Card - The Note Taking App
+      form(action="/" method="POST")
+        .form-group
+          label Title
+          input.form-control(type="text" name="title")
+        .form-group
+          label Content
+          textarea.form-control(rows="3" name="content")
+        .form-group
+          button.btn.btn-primary(type="submit") Add Note
+          button.btn#clearBtn(type="button") Clear
       
     script(src="/cardo.js")
