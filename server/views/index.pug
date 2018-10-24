@@ -11,30 +11,22 @@ html(lang="en")
   body
     main(role="main" class="container")
       h1#pageTitle Welcome to Card - The Note Taking App
-      form(action="/" method="POST")
+      form#addNoteForm(action="/" method="POST")
         .form-group
           label Title
-          input.form-control(type="text" name="title")
+          input.form-control#title(type="text" name="title")
         .form-group
           label Content
-          textarea.form-control(rows="3" name="content")
-        .form-group
-          label Author
-          input.form-control(type="text" name="author")
+          textarea.form-control#description(rows="3" name="description")
         .form-group
           button.btn.btn-primary(type="submit") Add Note
           button.btn#clearBtn(type="button") Clear
       section
-        table.table
+        table.table#notesTable
           tr
+            th ID
             th Title
-            th Content
-            th Author
-          each note in notes
-            tr
-              td= note.title
-              td= note.content
-              td= note.author
+            th Description
           
-      
+    script(src="/axios.min.js")
     script(src="/cardo.js")

@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
   notes.push(newNote);
   store.set('notes', notes);
 
-  res.json(store.get('notes'));
+  res.json(notes);
 });
 
 router.put('/:id', (req, res) => {
