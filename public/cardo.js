@@ -52,6 +52,7 @@
       td.textContent = header;
       thead.append(td);
     });
+    notesTable.append(thead);
     notes.forEach(function(note){
       var tr = document.createElement('tr');
       var tdId = document.createElement('td');

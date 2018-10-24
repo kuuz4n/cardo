@@ -77,6 +77,7 @@
     "beforeEach": false,
     "after": false,
     "afterEach": false,
-    "axios": false
+    "axios": false,
+    "Vue": false
   }
 }

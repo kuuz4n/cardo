@@ -9,7 +9,7 @@ html(lang="en")
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
 
   body
-    main(role="main" class="container")
+    main#cardoVue(role="main" class="container")
       h1#pageTitle Welcome to Card - The Note Taking App
       form#addNoteForm(action="/" method="POST")
         .form-group
@@ -27,6 +27,11 @@ html(lang="en")
             th ID
             th Title
             th Description
+          tr(v-for="note in notes")
+            td {{ note.id }}
+            td {{ note.title }}
+            td {{ note.description }}
           
     script(src="/axios.min.js")
-    script(src="/cardo.js")
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/cardo-vue.js")
