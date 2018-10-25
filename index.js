@@ -11,6 +11,7 @@ const notesRouter = require('./server/routers/notesRouter');
 const aboutRouter = require('./server/routers/aboutRouter');
 const indexRouter = require('./server/routers/indexRouter');
 const port = 3300;
+const notes = [];
 
 //- Middleware: Logs the request to the server
 //- the 'dev' is formatted as ":http_verb :url :status_code :response_time ms - :res[content-length]"
@@ -38,7 +39,8 @@ app.use(express.static('public'));
 // Purpose: So we do not have to redeclare the title on all our pages.
 app.use((req, res, next) => {
   req.viewModel = {
-    title: 'Card - Note Taking App'
+    title: 'Card - Note Taking App',
+    notes: notes
   };
   next();
 });
