@@ -52,6 +52,13 @@ app.set('view engine', 'pug');
 
 // Note: The order must be maintained here
 app.use('/', indexRouter);
+app.get('/notes/:id', (req, res) => {
+  let viewModel = req.viewModel;
+  viewModel.id = req.params.id;
+  viewModel.selectedNote = notes.find(n => Number(n.id) === Number(req.params.id));
+
+  res.render('notes', viewModel);
+});
 app.use('/about', aboutRouter);
 app.use('/api/notes', notesRouter);
 

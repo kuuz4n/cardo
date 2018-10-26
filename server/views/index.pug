@@ -37,7 +37,8 @@ html(lang="en")
             td {{ note.title }}
             td {{ note.description }}
             td
-              button(v-on:click="deleteNote(note)") Delete
+              button.mr-2.btn.btn-warning(v-on:click="deleteNote(note)") Delete
+              a.btn.btn-primary(:href="'/notes/' + note.id") View Note
           
     script(src="/axios.min.js")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
